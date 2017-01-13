@@ -1,0 +1,24 @@
+﻿<div>
+    <form name="mySettingsForm" role="form" novalidate class="form-validation" onkeydown="{  var currKey = 0, e = e || event; currKey = e.keyCode || e.which || e.charCode;
+        if (currKey == 13) return false;} ">
+        <div class="modal-header">
+            <h3 class="modal-title">
+                <span>图片批量上传</span>
+            </h3>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <input type="file" nv-file-select uploader="vm.uploader" multiple />
+                <span class="help-block m-b-none">单张图片大小限制300k</span>
+            </div>
+           
+        </div>
+        <div class="modal-footer">
+            <button type="button" ng-disabled="vm.saving" class="btn btn-default" ng-click="vm.cancel()">关闭</button>
+            <button type="submit" button-busy="vm.saving" busy-text="保存中"
+                    class="btn btn-primary blue" ng-click="vm.save()" ng-disabled="mySettingsForm.$invalid">
+                <i class="fa fa-save"></i> <span>保存</span>
+            </button>
+        </div>
+    </form>
+</div>

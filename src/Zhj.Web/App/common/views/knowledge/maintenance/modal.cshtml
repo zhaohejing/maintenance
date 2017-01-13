@@ -1,0 +1,38 @@
+<div>
+    <form name="exampleForm" role="form" novalidate class="form-validation">
+        <div class="modal-header">
+            <h4 class="modal-title">
+                添加故障知识
+            </h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-12">
+                        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                            <input class="form-control" type="text" name="title" ng-class="{'edited':vm.know.title}"
+                                   ng-model="vm.know.title" required maxlength="100">
+                            <label>知识标题</label>
+                        </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group form-md-line-input form-md-floating-label">
+                        <textarea ng-model="vm.know.description" maxlength="500" rows="5" type="text"
+                                  ng-class="{'edited':vm.know.description}" required
+                                  name="description" class="form-control position-popup-textarea"></textarea>
+                        <label>知识描述</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button ng-disabled="vm.saving" type="button" class="btn btn-default" ng-click="vm.cancel()">关闭</button>
+            <button type="submit" button-busy="vm.saving" busy-text="保存中"
+                     class="btn btn-primary blue" ng-click="vm.save()"
+                     ng-disabled="exampleForm.$invalid"><i class="fa fa-save"></i> <span>保存</span></button>
+        </div>
+    </form>
+</div>
