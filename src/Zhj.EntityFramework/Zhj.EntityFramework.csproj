@@ -112,6 +112,10 @@
     <Compile Include="EntityFramework\SqlExecuter.cs" />
     <Compile Include="EntityFramework\ZhjDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\AbpZeroTemplateRepositoryBase.cs" />
+    <Compile Include="Migrations\201703061348576_wwww.cs" />
+    <Compile Include="Migrations\201703061348576_wwww.Designer.cs">
+      <DependentUpon>201703061348576_wwww.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="AbpZeroTemplateDataModule.cs" />
     <Compile Include="Migrations\Seed\DefaultEditionCreator.cs" />
@@ -131,6 +135,11 @@
       <Project>{17298EA0-AF73-4F30-B6F1-2066100D7D74}</Project>
       <Name>Zhj.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201703061348576_wwww.resx">
+      <DependentUpon>201703061348576_wwww.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

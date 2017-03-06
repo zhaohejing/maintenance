@@ -337,8 +337,8 @@
     <Content Include="App\common\views\common\multipleUpload.js" />
     <Content Include="App\common\views\dashboard\index.js" />
     <Content Include="App\common\views\event\deal\index.js" />
-    <Content Include="App\common\views\event\release\index.js" />
     <Content Include="App\common\views\event\release\create.js" />
+    <Content Include="App\common\views\event\release\index.js" />
     <Content Include="App\common\views\knowledge\maintenance\index.js" />
     <Content Include="App\common\views\knowledge\maintenance\modal.js" />
     <Content Include="App\common\views\languages\editTextModal.js" />
@@ -1879,13 +1879,13 @@
     <Content Include="Abp\Framework\styles\abp.css.map" />
     <Content Include="App\common\views\dashboard\index.cshtml" />
     <Content Include="App\common\views\event\deal\index.cshtml" />
-    <Content Include="App\common\views\event\release\index.cshtml" />
     <Content Include="App\common\views\knowledge\maintenance\index.cshtml" />
     <Content Include="App\common\views\analysis\statistical\index.cshtml" />
-    <Content Include="App\common\views\event\release\create.cshtml" />
     <Content Include="App\common\views\common\multipleUpload.cshtml" />
     <Content Include="App\common\views\knowledge\maintenance\modal.cshtml" />
     <Content Include="App\common\views\common\comment.cshtml" />
+    <Content Include="App\common\views\event\release\index.cshtml" />
+    <Content Include="App\common\views\event\release\create.cshtml" />
     <None Include="Properties\PublishProfiles\mysetting.pubxml" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
