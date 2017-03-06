@@ -1,0 +1,153 @@
+<div ng-controller="common.views.event.deal.index as vm">
+    <div class="row margin-bottom-5">
+        <div class="col-xs-6">
+            <div class="page-head">
+                <div class="page-title">
+                    <h1>
+                        <span>故障处理</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+      
+    </div>
+
+    <div class="portlet light org-light">
+        <div ng-hide="!vm.jTableInfo.isShow" id="modalInfo" class="big-title-modalInfo-trainingmap">
+            <form name="categoryCreateOrEditForm" role="form" novalidate class="form-validation">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <span ng-if="vm.fault.id">查看报修: {{vm.fault.deviceName | cut:true:10:'...'}}</span>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                                <input type="text" name="categoryName" class="form-control"
+                                       ng-class="{'edited':vm.fault.deviceName}"
+                                       ng-model="vm.fault.deviceName" readonly>
+                                <label>设备名称</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                                <input type="text" name="categoryName" class="form-control"
+                                       ng-class="{'edited':vm.fault.deviceAlias}"
+                                       ng-model="vm.fault.deviceAlias" readonly>
+                                <label>设备别名</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                                <input type="text" name="categoryName" class="form-control"
+                                       ng-class="{'edited':vm.fault.deviceAssetNo}"
+                                       ng-model="vm.fault.deviceAssetNo" readonly>
+                                <label>设备资产号</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                                <input type="text" name="categoryName" class="form-control"
+                                       ng-class="{'edited':vm.fault.deviceHead}"
+                                       ng-model="vm.fault.deviceHead" readonly>
+                                <label>设备负责人</label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                                <input type="text" name="categoryName" class="form-control"
+                                       ng-class="{'edited':vm.fault.deviceManufacture}"
+                                       ng-model="vm.fault.deviceManufacture" readonly>
+                                <label>设备厂商</label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                                <input type="text" name="categoryName" class="form-control"
+                                       ng-class="{'edited':vm.fault.deviceSIgnkey}"
+                                       ng-model="vm.fault.deviceSIgnkey" readonly>
+                                <label>设备标识</label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                                <input type="text" name="categoryName" class="form-control"
+                                       ng-class="{'edited':vm.fault.deviceLocation}"
+                                       ng-model="vm.fault.deviceLocation" readonly>
+                                <label>设备位置</label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group form-md-line-input form-md-floating-label">
+                        <textarea ng-model="vm.fault.faultDescription" maxlength="500" rows="5" type="text"
+                                  ng-class="{'edited':vm.fault.faultDescription}"
+                                  name="description" class="form-control position-popup-textarea" readonly></textarea>
+                        <label>问题描述</label>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            创建时间:{{vm.fault.creationTime | date:'yyyy-MM-dd' }}
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" ng-click="vm.cancel()">关闭</button>
+                        <button type="button" ng-if="vm.fault.faultType==1&&vm.permissions.deal"
+                                 class="btn btn-success" ng-click="vm.accept(vm.fault)">接受报修</button>
+                        <button type="button" ng-if="vm.fault.faultType==2&&vm.permissions.deal&&vm.fault.enginerId==vm.userId"
+                                class="btn btn-success" ng-click="vm.sovled(vm.fault)">
+                            完成修理
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- 角色列表 -->
+        <table object-table
+               data="vm.jTableInfo.data"
+               check-model="vm.jTableInfo.checkModel"
+               back-model="vm.jTableInfo.backModel"
+               display="vm.jTableInfo.pageConfig.itemsPerPage"
+               headers="设备名称,设备别名,设备厂商,设备负责人,设备标识,设备位置,状态"
+               fields="deviceName,deviceAlias,deviceManufacture,deviceHead,deviceSIgnkey,deviceLocation,faultType">
+            <tbody>
+                <tr ng-click="$owner.vm.showeditinfo(item)">
+                    <td>
+                        <input type="checkbox"
+                               ng-model="::item.checked"
+                               ng-click="$event.stopPropagation();checkOne(item);" />
+                    </td>
+                    <td show-td item="item" name="deviceName"></td>
+                    <td show-td item="item" name="deviceAlias"></td>
+                    <td show-td item="item" name="deviceManufacture"></td>
+                    <td show-td item="item" name="deviceHead"></td>
+                    <td show-td item="item" name="deviceSIgnkey"></td>
+                    <td show-td item="item" name="deviceLocation"></td>
+                    <td >{{item.faultType==1?'未解决':(item.faultType==2?'解决中':'已解决')}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <!--分页-->
+        <nav class="paging">
+            <obj-pagination conf="vm.jTableInfo.pageConfig"></obj-pagination>
+        </nav>
+    </div>
+
+</div>
