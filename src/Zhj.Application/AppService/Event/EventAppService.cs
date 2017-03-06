@@ -5,6 +5,7 @@ using Abp.Collections.Extensions;
 using Abp.Domain.Repositories;
 using Abp.Extensions;
 using Abp.Linq.Extensions;
+using Abp.Timing;
 using Abp.UI;
 using MyCompanyName.AbpZeroTemplate.AppService.Event;
 using MyCompanyName.AbpZeroTemplate.AppService.Event.Dtos;
@@ -63,6 +64,12 @@ namespace MyCompanyName.AbpZeroTemplate.ApplicationService.Event {
             var guidlist = dto.ProfileList;
             var model = dto.MapTo<DeviceFaultInfo>();
             model.FaultType = FaultType.NotSolved;
+            if (model.LastRepairTime.HasValue)
+            {
+             model.LastRepairTime    = Clock.Normalize((DateTime)model.LastRepairTime);
+            }
+
+
             var id = await _faultRepository.InsertAndGetIdAsync(model);
             var list = guidlist.Select(c => new DeviceAttach() { DeviceId = id, ProfileId = c, FileType = AttachType.Image });
             foreach (var item in list) {

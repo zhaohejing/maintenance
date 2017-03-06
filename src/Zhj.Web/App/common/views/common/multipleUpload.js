@@ -1,7 +1,7 @@
 ﻿(function () {
     appModule.controller('common.views.common.multipleupload', [
-        '$scope', 'appSession', '$uibModalInstance', 'FileUploader', 'images',
-        function ($scope, appSession, $uibModalInstance, fileUploader, images) {
+        '$scope', 'appSession', '$uibModalInstance', 'FileUploader', 
+        function ($scope, appSession, $uibModalInstance, fileUploader ) {
             //var imageurl = "http://image.huaeryun.com/"
             //var vm = this;
             //var url = /*abp.appPath*/  imageurl + 'Profile/UploadProfilePicture';
@@ -30,7 +30,7 @@
                     }
                 }]
             });
-            vm.imageslist = (images == null || images.length <= 0 ? [] : images);
+            vm.imageslist =[];
             vm.save = function () {
               
                     vm.uploader.uploadAll();

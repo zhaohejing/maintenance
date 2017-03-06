@@ -75,7 +75,7 @@ appModule.config([
 
             //添加隐藏页面的方法 跳转 传参等等
             $stateProvider.state('release', {
-                url: '/release', data: { pageTitle: "添加课件包" },
+                url: '/release', data: { pageTitle: "添加报修" },
                 templateUrl: '~/App/common/views/event/release/create.cshtml',
                 menu: ''
             })
