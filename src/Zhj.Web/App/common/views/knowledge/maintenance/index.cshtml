@@ -40,7 +40,7 @@
                             <span class="status"><i class="fa fa-gavel">{{know.knowledgeState==1?'未解决':'已解决'}}</i> </span>
                             <span class="status"><i class="fa fa-info">{{know.knowledgeType==1?'故障':'电脑'}}</i> </span>
                             <span class="status" ng-if="vm.permissions.delete" ng-click="vm.deleteknow(know.id)"><i class="fa fa-remove">删除</i></span>
-                            <span class="status" ng-if="vm.permissions.comment" ng-click="vm.sovleknow(know.id)"><i class="fa fa-send-o">解决问题</i></span>
+                            <span class="status" ng-if="vm.permissions.comment" ng-click="vm.sovleknow(know.id)"><i class="fa fa-send-o">解决</i></span>
                         </div>
                     </div>
                     <div  ng-if="!know.deep" >
