@@ -18,7 +18,7 @@ namespace MyCompanyName.AbpZeroTemplate.Web.Controllers {
             var model = new TempModel() {
                 RepairTime = System.DateTime.Now,
                 DeviceAlias = "别名",
-                DeviceAssetNo = "192.168.1.1",
+                DeviceAssetNo = userIp,
                 DeviceDescription = "我是描述",
                 DeviceSIgnkey = "我是标识",
                 DeviceName = "我是设备名",
@@ -36,7 +36,7 @@ namespace MyCompanyName.AbpZeroTemplate.Web.Controllers {
             var model = new TempModel() {
                 RepairTime = System.DateTime.Now,
                 DeviceAlias = "别名",
-                DeviceAssetNo = "192.168.1.1",
+                DeviceAssetNo = userIp,
                 DeviceDescription = "我是描述",
                 DeviceSIgnkey = "我是标识",
                 DeviceName = "我是设备名",
