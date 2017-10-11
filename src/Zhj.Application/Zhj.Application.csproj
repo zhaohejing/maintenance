@@ -7,8 +7,8 @@
     <ProjectGuid>{EDF5D964-4C0F-4F19-B674-58A38A5E5401}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MyCompanyName.AbpZeroTemplate</RootNamespace>
-    <AssemblyName>MyCompanyName.AbpZeroTemplate.Application</AssemblyName>
+    <RootNamespace>Maintenance</RootNamespace>
+    <AssemblyName>Maintenance.Application</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
