@@ -7,15 +7,13 @@ using Abp.Net.Mail;
 using Abp.Zero;
 using Abp.Zero.Configuration;
 using Abp.Zero.Ldap;
-using Abp.Zero.Ldap.Configuration;
-using MyCompanyName.AbpZeroTemplate.Authorization.Ldap;
 using MyCompanyName.AbpZeroTemplate.Authorization.Roles;
 using MyCompanyName.AbpZeroTemplate.Configuration;
 using MyCompanyName.AbpZeroTemplate.Debugging;
 using MyCompanyName.AbpZeroTemplate.Features;
 using MyCompanyName.AbpZeroTemplate.Notifications;
 
-namespace MyCompanyName.AbpZeroTemplate
+namespace Maintenance
 {
     /// <summary>
     /// Core (domain) module of the application.
@@ -31,7 +29,7 @@ namespace MyCompanyName.AbpZeroTemplate
                     "Zhj",
                     new XmlEmbeddedFileLocalizationDictionaryProvider(
                         Assembly.GetExecutingAssembly(),
-                        "MyCompanyName.AbpZeroTemplate.Localization.Zhj"
+                        "Maintenance.Localization.Zhj"
                         )
                     )
                 );

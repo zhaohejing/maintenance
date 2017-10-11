@@ -15,6 +15,8 @@ namespace MyCompanyName.AbpZeroTemplate.Web.Controllers {
 
         public ActionResult Index() {
             var userIp = Request.UserHostAddress;
+             userIp = "192.168.34.61";
+            
             var model = _sqlhelper.GetUserClientInfo(userIp);
             // var model = _sqlhelper.GetUserClientInfo(userIp);
             ViewData["User"] = model;

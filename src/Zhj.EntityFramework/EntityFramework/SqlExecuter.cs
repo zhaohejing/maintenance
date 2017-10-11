@@ -49,10 +49,11 @@ namespace MyCompanyName.AbpZeroTemplate.EntityFramework {
             var sql = $@"select top 1 b.strDevName [DeviceName] ,
 b.strAssetID [DeviceAssetNo],d.strDevType [DeviceType],e.strUserName [DeviceHead],
 b.iDevTypeUsedByTopo [DeviceAlias],b.strDevIdentiy [DeviceSIgnkey],c.strVendor [DeviceManufacture],
-b.strLocation [DeviceLocation],b.strDevDesc [DeviceDescription],b.dtDevUpTime  [RepairTime]  from Tbl_ARP a inner join 	Tbl_DevBaseInfo  b on a.strIP=b.strDevIP  and a.strMAC=b.strMAC
+b.strLocation [DeviceLocation],b.strDevDesc [DeviceDescription],b.dtDevUpTime  [RepairTime]  from 
+ 	Tbl_DevBaseInfo  b
 left join 	Tbl_DevOID c on b.strDevOID=c.strDevOID left join Tbl_DevType d on b.iDevType=d.iDevType
 left join 	Tbl_AlarmConnector e on b.uidUserID = e.uidUserID
-where a.strIP='{ip}' and a.iIsValid =1";
+where b.strDevIP='{ip}' ";
             var dt = MySqlHelper.ExecuteDataTable(CommandType.Text, sql);
             return ConvertToModel<TempModel>(dt).FirstOrDefault();
         }

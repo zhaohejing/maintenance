@@ -5,7 +5,8 @@
 @{
     MyCompanyName.AbpZeroTemplate.EntityModel.TempModel model = null;
     var tt = ViewData["User"];
-    if (tt != null) {
+    if (tt != null)
+    {
         model = tt as MyCompanyName.AbpZeroTemplate.EntityModel.TempModel;
     }
 }
@@ -26,76 +27,73 @@
             <div class="login-content">
                 <h1>故障统一管理平台</h1>
                 <p>
-               @{ 
-                   var name = model.DeviceName;
-                   @:当前登录设备名称是 @name
+                    @if (model == null)
+                    {
+                    <p> 暂未查找到你的设备信息</p>
+                    }
+                    else
+                    {
+                        var name = model.DeviceName;
+                        @:当前登录设备名称是 @name
+                    }
+                    </p>
+                    @{if (model != null)
+                        {
+                            <form action="@Url.Action("Login","Account")?returnUrl=/eventrelease" class="login-form" method="post">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <input class="form-control form-control-solid placeholder-no-fix form-group"
+                                               type="text" autocomplete="off" placeholder="用户名" name="usernameOrEmailAddress" required value="游客" />
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <input class="form-control form-control-solid placeholder-no-fix form-group"
+                                               type="password" autocomplete="off" placeholder="密码" name="password" required value="123qwe" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                    </div>
+                                    <div class="col-sm-8 text-right">
+
+                                        <button class="btn blue" type="submit">登录</button>
+                                    </div>
+                                </div>
+                                <input id="ReturnUrlHash" type="hidden" name="returnUrlHash" />
+                            </form>
+
+                        }
+                        @*else
+                        {
+                            <form action="@Url.Action("Login","Account")?returnUrl=/eventrelease" class="login-form" method="post">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <input class="form-control form-control-solid placeholder-no-fix form-group"
+                                               type="text" autocomplete="off" placeholder="用户名" name="usernameOrEmailAddress" required />
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <input class="form-control form-control-solid placeholder-no-fix form-group"
+                                               type="password" autocomplete="off" placeholder="密码" name="password" required />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                    </div>
+                                    <div class="col-sm-8 text-right">
+
+                                        <button class="btn blue" type="submit">登录</button>
+                                    </div>
+                                </div>
+                                <input id="ReturnUrlHash" type="hidden" name="returnUrlHash" />
+                            </form>
+                        }*@
+
 
                     }
-                </p>
-                @{if (model != null) {
-                        <form action="@Url.Action("Login","Account")?returnUrl=/eventrelease" class="login-form" method="post">
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    <input class="form-control form-control-solid placeholder-no-fix form-group" 
-                                           type="text"  autocomplete="off"  placeholder="用户名" name="usernameOrEmailAddress" required  value="游客"/>
-                                </div>
-                                <div class="col-xs-6">
-                                    <input class="form-control form-control-solid placeholder-no-fix form-group" 
-                                           type="password"  autocomplete="off" placeholder="密码" name="password" required value="123qwe"/>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-4">
-                                </div>
-                                <div class="col-sm-8 text-right">
-
-                                    <button  class="btn blue" type="submit">登录</button>
-                                </div>
-                            </div>
-                            <input id="ReturnUrlHash" type="hidden" name="returnUrlHash" />
-                        </form>
-
-                    }
-                    else {
-                        <form action="@Url.Action("Login","Account")?returnUrl=/eventrelease" class="login-form" method="post">
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    <input class="form-control form-control-solid placeholder-no-fix form-group"
-                                           type="text"  autocomplete="off" placeholder="用户名" name="usernameOrEmailAddress" required  />
-                                </div>
-                                <div class="col-xs-6">
-                                    <input class="form-control form-control-solid placeholder-no-fix form-group"
-                                           type="password"  autocomplete="off" placeholder="密码" name="password" required  />
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-4">
-                                </div>
-                                <div class="col-sm-8 text-right">
-
-                                    <button class="btn blue" type="submit">登录</button>
-                                </div>
-                            </div>
-                            <input id="ReturnUrlHash" type="hidden" name="returnUrlHash" />
-                        </form>
-                    }
 
 
-                }
 
-
+                </div>
 
             </div>
-          
         </div>
     </div>
-</div>
-
-
-
-
-
-
-
-
-

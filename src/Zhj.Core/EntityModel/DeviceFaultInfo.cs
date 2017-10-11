@@ -116,7 +116,7 @@ namespace MyCompanyName.AbpZeroTemplate.EntityModel {
         /// <summary>
         /// 设备别名
         /// </summary>
-        public string DeviceAlias { get; set; }
+        public int DeviceAlias { get; set; }
         /// <summary>
         /// 设备厂商
         /// </summary>
@@ -137,12 +137,8 @@ namespace MyCompanyName.AbpZeroTemplate.EntityModel {
         /// <summary>
         /// 设备描述
         /// </summary>
-   
 
         public string DeviceDescription { get; set; }
-        /// <summary>
-        /// 故障描述
-        /// </summary>
     
     }
 

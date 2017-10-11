@@ -1,21 +1,20 @@
-﻿
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
-using Abp.Extensions;
 using Abp.Linq.Extensions;
 using Abp.UI;
+using MyCompanyName.AbpZeroTemplate;
+using MyCompanyName.AbpZeroTemplate.AppService.Konwledge;
 using MyCompanyName.AbpZeroTemplate.AppService.Konwledge.Dtos;
 using MyCompanyName.AbpZeroTemplate.AppService.Konwledge.Inputs;
 using MyCompanyName.AbpZeroTemplate.Authorization;
 using MyCompanyName.AbpZeroTemplate.EntityModel;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace MyCompanyName.AbpZeroTemplate.AppService.Konwledge {
+namespace Maintenance.AppService.Konwledge {
     public class KnowledgeAppService : AbpZeroTemplateAppServiceBase, IKnowledgeAppService {
         private readonly IRepository<KnowledgeBase> _knowledgeRepository;
         private readonly IRepository<KnowledgeComment> _commentRepository;

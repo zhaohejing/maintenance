@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using Abp.Modules;
 using Abp.Zero.EntityFramework;
+using Maintenance;
 
 namespace MyCompanyName.AbpZeroTemplate
 {

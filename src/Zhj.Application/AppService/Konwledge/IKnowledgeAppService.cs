@@ -1,14 +1,10 @@
-﻿using Abp.Application.Services;
+﻿using System.Threading.Tasks;
+using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using MyCompanyName.AbpZeroTemplate.AppService.Konwledge.Dtos;
 using MyCompanyName.AbpZeroTemplate.AppService.Konwledge.Inputs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MyCompanyName.AbpZeroTemplate.AppService.Konwledge {
+namespace Maintenance.AppService.Konwledge {
     public interface IKnowledgeAppService : IApplicationService {
         Task<PagedResultOutput<KnowledgeDto>> GetDevicesFaultInfoList(GetKnowledgeInput input);
         Task InsertKnowledge(KnowledgeDto model);

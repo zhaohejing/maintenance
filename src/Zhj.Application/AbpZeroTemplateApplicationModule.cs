@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using Abp.AutoMapper;
 using Abp.Modules;
+using Maintenance;
 using MyCompanyName.AbpZeroTemplate.Authorization;
 
 namespace MyCompanyName.AbpZeroTemplate
