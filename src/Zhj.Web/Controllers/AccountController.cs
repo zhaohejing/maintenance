@@ -130,23 +130,12 @@ namespace MyCompanyName.AbpZeroTemplate.Web.Controllers
 
             _unitOfWorkManager.Current.DisableFilter(AbpDataFilters.MayHaveTenant);
 
-            var loginResult = await GetLoginResultAsync(loginModel.UsernameOrEmailAddress, loginModel.Password, loginModel.TenancyName);
+            var loginResult = await _userManager.LoginAsync(loginModel.UsernameOrEmailAddress, loginModel.Password, loginModel.TenancyName);
 
-            //if (loginResult.User.ShouldChangePasswordOnNextLogin)
-            //{
-            //    loginResult.User.SetNewPasswordResetCode();
-
-            //    return Json(new MvcAjaxResponse
-            //    {
-            //        TargetUrl = Url.Action(
-            //            "ResetPassword",
-            //            new ResetPasswordViewModel
-            //            {
-            //                UserId = SimpleStringCipher.Encrypt(loginResult.User.Id.ToString()),
-            //                ResetCode = loginResult.User.PasswordResetCode
-            //            })
-            //    });
-            //}
+            if (loginResult.Result != AbpLoginResultType.Success)
+            {
+                return RedirectToAction("Index","Home");
+            }
 
             await SignInAsync(loginResult.User, loginResult.Identity, loginModel.RememberMe);
 
