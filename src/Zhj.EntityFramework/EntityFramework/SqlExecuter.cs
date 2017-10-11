@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 namespace MyCompanyName.AbpZeroTemplate.EntityFramework {
     public class SqlExecuter : AbpZeroTemplateRepositoryBase<DeviceFaultInfo>, ISqlExecuter, ITransientDependency {
 
-        public string SqlConn = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
+        public string SqlConn = ConfigurationManager.ConnectionStrings["Devices"].ConnectionString;
         public SqlExecuter(IDbContextProvider<ZhjDbContext> dbContextProvider) : base(dbContextProvider) {
 
         }

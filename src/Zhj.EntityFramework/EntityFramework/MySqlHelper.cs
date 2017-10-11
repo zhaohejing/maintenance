@@ -20,7 +20,7 @@ namespace MyCompanyName.AbpZeroTemplate.EntityFramework {
         /// 数据库连接字符串
         /// </summary>
 
-        public static string SqlConn = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;   // Hashtable to store cached parameters
+        public static string SqlConn = ConfigurationManager.ConnectionStrings["Devices"].ConnectionString;   // Hashtable to store cached parameters
         private static Hashtable parmCache = Hashtable.Synchronized(new Hashtable());
 
         #region//ExecteNonQuery方法
