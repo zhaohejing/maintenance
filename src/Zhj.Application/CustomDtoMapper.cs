@@ -4,7 +4,7 @@ using MyCompanyName.AbpZeroTemplate.Authorization.Users;
 using MyCompanyName.AbpZeroTemplate.Authorization.Users.Dto;
 using MyCompanyName.AbpZeroTemplate.EntityModel;
 
-namespace MyCompanyName.AbpZeroTemplate
+namespace Maintenance
 {
     internal static class CustomDtoMapper
     {

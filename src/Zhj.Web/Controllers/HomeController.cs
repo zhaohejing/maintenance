@@ -1,9 +1,8 @@
-﻿using MyCompanyName.AbpZeroTemplate.EntityModel;
+﻿using System.Web.Mvc;
 using MyCompanyName.AbpZeroTemplate.Storage;
-using System.Web.Mvc;
-using MyCompanyName.AbpZeroTemplate.EntityFramework;
+using MyCompanyName.AbpZeroTemplate.Web.Controllers;
 
-namespace MyCompanyName.AbpZeroTemplate.Web.Controllers {
+namespace Maintenance.Web.Controllers {
     public class HomeController : AbpZeroTemplateControllerBase {
 
         private readonly ISqlExecuter _sqlhelper;
@@ -15,7 +14,7 @@ namespace MyCompanyName.AbpZeroTemplate.Web.Controllers {
 
         public ActionResult Index() {
             var userIp = Request.UserHostAddress;
-             userIp = "192.168.34.61";
+           //  userIp = "192.168.34.61";
             
             var model = _sqlhelper.GetUserClientInfo(userIp);
             // var model = _sqlhelper.GetUserClientInfo(userIp);

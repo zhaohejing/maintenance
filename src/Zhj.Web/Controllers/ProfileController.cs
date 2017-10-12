@@ -234,7 +234,7 @@ namespace MyCompanyName.AbpZeroTemplate.Web.Controllers
             }
             catch (Exception ex) {
                 //Return error message
-                return Json(new { state = -1 });
+                return Json(new { state = -1,error=ex.Message });
 
             }
 
