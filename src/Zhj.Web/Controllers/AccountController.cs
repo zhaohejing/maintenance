@@ -36,13 +36,15 @@ using MyCompanyName.AbpZeroTemplate.Debugging;
 using MyCompanyName.AbpZeroTemplate.MultiTenancy;
 using MyCompanyName.AbpZeroTemplate.Notifications;
 using MyCompanyName.AbpZeroTemplate.Security;
+using MyCompanyName.AbpZeroTemplate.Web;
+using MyCompanyName.AbpZeroTemplate.Web.Controllers;
 using MyCompanyName.AbpZeroTemplate.Web.Controllers.Results;
 using MyCompanyName.AbpZeroTemplate.Web.Models.Account;
 using MyCompanyName.AbpZeroTemplate.Web.MultiTenancy;
 using Recaptcha.Web;
 using Recaptcha.Web.Mvc;
 
-namespace MyCompanyName.AbpZeroTemplate.Web.Controllers
+namespace Maintenance.Web.Controllers
 {
     public class AccountController : AbpZeroTemplateControllerBase
     {
@@ -60,13 +62,7 @@ namespace MyCompanyName.AbpZeroTemplate.Web.Controllers
         private readonly IUserLinkManager _userLinkManager;
         private readonly INotificationSubscriptionManager _notificationSubscriptionManager;
 
-        private IAuthenticationManager AuthenticationManager
-        {
-            get
-            {
-                return HttpContext.GetOwinContext().Authentication;
-            }
-        }
+        private IAuthenticationManager AuthenticationManager => HttpContext.GetOwinContext().Authentication;
 
         public AccountController(
             UserManager userManager,
@@ -280,7 +276,7 @@ namespace MyCompanyName.AbpZeroTemplate.Web.Controllers
                     };
 
                     model.UserName = model.EmailAddress;
-                    model.Password = Authorization.Users.User.CreateRandomPassword();
+                    model.Password = MyCompanyName.AbpZeroTemplate.Authorization.Users.User.CreateRandomPassword();
 
                     if (string.Equals(externalLoginInfo.Email, model.EmailAddress, StringComparison.InvariantCultureIgnoreCase))
                     {
